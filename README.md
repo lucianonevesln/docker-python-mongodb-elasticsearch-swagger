@@ -6,6 +6,7 @@ Tecnologias Utilizadas:
 - MongoDB;
 - Python;
 - Flask;
+- Elastic Search (a ser inserido no projeto);
 - Postman;
 - Swagger;
 - Bibliotecas.
