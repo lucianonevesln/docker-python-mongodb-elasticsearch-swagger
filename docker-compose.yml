@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+  mongo_db:
+    container_name: mongo_db
+    image: mongo
+    volumes:
+      - ~/mongo/data:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+        MONGODB_USER: "root"
+        MONGODB_DATABASE: "database"
+        MONGODB_PASS: "admin#123"
+    networks:
+       vpcbr:
+         ipv4_address: 10.5.0.5
+
+  flask_servidor:
+    build: .
+    container_name: flask_servidor
+    image: img_flask_servidor
+    links:
+      - mongo_db:mongo_db
+    volumes:
+      - .:/code
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo_db
+    networks:
+      - vpcbr
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
