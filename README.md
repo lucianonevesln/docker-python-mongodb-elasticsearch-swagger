@@ -52,4 +52,6 @@ OBS: pode haver problemas na consulta de alguns CEP, cujo diagnóstico (bug) nã
 - 05001000;
 - 29032145;
 - 69900001;
-- 70722500.
+- 70722500;
+
+Fim.
